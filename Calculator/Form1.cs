@@ -188,7 +188,7 @@ namespace Calculator
         private void DeleteValue()
         {
 
-            if (this.UserInputText.Text.Length < this.UserInputText.SelectionStart + 1)
+            if (this.UserInputText.Text.Length < this.UserInputText.SelectionStart )
                 return;
 
             var selectionstart = this.UserInputText.SelectionStart;
@@ -208,8 +208,24 @@ namespace Calculator
         /// </summary>
         private void CalculateTheResult()
         {
+            
+
+            this.CalculationResultText.Text = ParseOperation();
+
             FocusInputText();
-            throw new NotImplementedException();
+        }
+
+        private string ParseOperation()
+        {
+            try
+            {
+                var userInput = this.UserInputText.Text;
+
+            }
+            catch(Exception ex)
+            {
+                return $"Invalid equation. { ex.Message}"
+;            }
         }
         #endregion
 
